@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useSecondOrder } from "../hooks/useSecondOrder";
+import { SecondOrderParams } from "../types/SecondOrderParams";
 
-export default function CursorFollower() {
+type Props = {
+  params: SecondOrderParams;
+};
+
+export default function CursorFollower({ params }: Props) {
   const [mouse, setMouse] = useState({
     x: 0,
     y: 0,
@@ -23,17 +28,8 @@ export default function CursorFollower() {
       window.removeEventListener("mousemove", handleMove);
   }, []);
 
-  const x = useSecondOrder(mouse.x, {
-    frequency: 2,
-    damping: 0.5,
-    response: 2,
-  });
-
-  const y = useSecondOrder(mouse.y, {
-    frequency: 2,
-    damping: 0.5,
-    response: 2,
-  });
+  const x = useSecondOrder(mouse.x, params);
+  const y = useSecondOrder(mouse.y, params);
 
   return (
     <div
@@ -45,8 +41,8 @@ export default function CursorFollower() {
         background: "red",
         pointerEvents: "none",
 
-        transform: `translate(${x - 25}px, ${y - 50}px)`,
-        }}
+        transform: `translate(${x - 25}px, ${y - 25}px)`,
+      }}
     />
   );
 }
