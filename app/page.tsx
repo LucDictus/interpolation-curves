@@ -1,7 +1,15 @@
+import CursorFollower from "./components/CurserFollower";
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center">
-      hoi
-    </div>
+    <main
+      style={{
+        height: "100vh",
+      }}
+    >
+      <h1>Second Order Motion Demo</h1>
+
+      <CursorFollower />
+    </main>
   );
 }
