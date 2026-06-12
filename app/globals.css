@@ -122,3 +122,7 @@ input {
 .red {
   color: var(--text-red);
 }
+
+.panel {
+  transition: all 0.25s ease;
+}

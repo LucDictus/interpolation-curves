@@ -1,9 +1,9 @@
-import HomePage from "./pages/HomePage";
-
 export default function Home() {
-  return (
-    <>
-      <HomePage />
-    </>
-  );
+    return (
+        <div style={{ padding: 40, marginLeft: 75 }}>
+            <h1>Interpolation Curves Lab - HOMEPAGE</h1>
+
+            {/* Make something here */}
+        </div>
+    );
 }

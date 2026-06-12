@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+---
+
 ## Getting Started
 
 First, run the development server:
@@ -16,21 +18,54 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Interpolation Curves Lab — Simulation Projects
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is a growing interactive simulation playground built with Next.js.
+Each demo is a self-contained system exploring motion, physics, algorithms, or emergent behavior.
 
-## Learn More
+## Completed Projects
+These are fully implemented and working:
 
-To learn more about Next.js, take a look at the following resources:
+### Second Order System
+- Damped spring motion model
+- Frequency, damping, and response controls
+- Cursor follower physics system
+- Foundation for motion-based interactions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## In Progress
+These projects are currently being developed:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Boids Simulation (WIP)
+- Multi-agent flocking system
+- Separation, alignment, cohesion rules
+- Emergent group behavior (bird/fish-like motion)
 
-## Deploy on Vercel
+## Planned Projects (Backlog)
+These are future simulations planned for the engine:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Physics / Motion Systems
+- Spring Network (mass-spring system, soft-body behavior)
+- Car Suspension Simulator (real-world damping + vibration model)
+- Rigid Body Rotation System (torque, angular momentum, inertia)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Algorithm Visualizations
+- Pathfinding Visualizer (A* / Dijkstra)
+- Cellular Automata (Game of Life variants)
+- Vector Field Flow Simulation (noise-driven motion fields)
+
+### Mechanical / Engine Systems
+- Engine Piston Simulation (crankshaft + periodic motion)
+- Gear System Simulator (rotational ratio systems)
+- Differential Drive Robot Simulation
+
+### Mathematical Visual Systems
+- Parametric Curve Explorer (Bezier curves + interpolation)
+- Wave Interference Simulation (harmonics + oscillation patterns)
+- Field Visualization System (vector/scalar fields)
+
+## Project Vision
+This project aims to become a modular browser-based simulation engine where every demo behaves like a “world” with:
+- its own rules and behavior
+- shared navigation and transitions
+- reusable physics and math systems
+- consistent interaction patterns
