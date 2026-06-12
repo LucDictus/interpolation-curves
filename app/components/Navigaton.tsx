@@ -1,21 +1,50 @@
-export default function Navigation() {
-  return (
-    <nav
-        style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            padding: "1rem",
-            gap: "1rem",
-            borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
-            backdropFilter: "blur(10px)",
-            zIndex: 1000,
-        }}
-    >
-        <h2> Second Order Motion Demo </h2>
-    </nav>
-  );
+type Props = {
+    params: SecondOrderParams;
+};
+
+export default function Navigation({params}: Props) {
+    return (
+        <div
+            className="panel"
+            style={{
+                position: "fixed",
+                top: 24,
+                left: 24,
+                width: 280,
+                padding: 16,
+                zIndex: 1000,
+            }}
+        >
+            <div
+                style={{
+                    fontSize: "1rem",
+                    marginBottom: 12,
+                    letterSpacing: "0.15em",
+                }}
+            >
+                SECOND ORDER DEMO
+            </div>
+
+            <div className="label">Motion</div>
+
+            <div
+                style={{
+                    marginTop: 8,
+                    display: "grid",
+                    gridTemplateColumns: "1fr auto",
+                    gap: 4,
+                    fontSize: "0.8rem",
+                }}
+            >
+                <span>FREQUENCY (f)</span>
+                <span className="orange">{params.frequency}</span>
+
+                <span>DAMPING (zeta)</span>
+                <span className="orange">{params.damping}</span>
+
+                <span>RESPONSE (r)</span>
+                <span className="orange">{params.response}</span>
+            </div>
+        </div>
+    );
 }
-        
-        

@@ -32,17 +32,35 @@ export default function CursorFollower({ params }: Props) {
   const y = useSecondOrder(mouse.y, params);
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        width: 50,
-        height: 50,
-        borderRadius: "50%",
-        background: "red",
-        pointerEvents: "none",
+      <>
+          <div
+              style={{
+                  position: "fixed",
+                  width: 16,
+                  height: 16,
+                  borderRadius: "50%",
+                  background: "var(--text-red)",
+                  boxShadow:
+                      "0 0 10px var(--text-red), 0 0 30px var(--text-red)",
+                  pointerEvents: "none",
+                  transform: `translate(${x - 8}px, ${y - 8}px)`,
+                  zIndex: 500,
+              }}
+          />
 
-        transform: `translate(${x - 25}px, ${y - 25}px)`,
-      }}
-    />
+          <div
+              style={{
+                  position: "fixed",
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  border: "1px solid var(--text-red)",
+                  pointerEvents: "none",
+                  transform: `translate(${x - 20}px, ${y - 20}px)`,
+                  opacity: 0.5,
+                  zIndex: 499,
+              }}
+          />
+      </>
   );
 }

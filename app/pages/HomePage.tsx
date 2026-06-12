@@ -12,13 +12,27 @@ export default function HomePage() {
     response: 2,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <Navigation />
+      <Navigation params={params} />
 
-      <main style={{ height: "100vh" }}>
-        <SettingsTab params={params} setParams={setParams} />
-        <CursorFollower params={params} />
+      <main
+          style={{
+              width: "100vw",
+              height: "100vh",
+              position: "relative",
+          }}
+      >
+          <SettingsTab
+              params={params}
+              setParams={setParams}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+          />
+
+          <CursorFollower params={params} />
       </main>
     </>
   );
