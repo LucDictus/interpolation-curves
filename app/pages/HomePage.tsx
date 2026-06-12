@@ -12,6 +12,8 @@ export default function HomePage() {
     response: 2,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Navigation params={params} />
@@ -26,6 +28,8 @@ export default function HomePage() {
           <SettingsTab
               params={params}
               setParams={setParams}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
           />
 
           <CursorFollower params={params} />
