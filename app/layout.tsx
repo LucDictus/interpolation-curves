@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-                                     children,
-                                   }: {
+  children,
+}: {
   children: React.ReactNode;
 }) {
   return (
-      <html lang="en">
-        <body className="min-h-full flex flex-col">
-          <div style={{ position: "relative", width: "100%", height: "100%" }}>
-            <Navigation />
-            <PageTransition>{children}</PageTransition>
-          </div>
-        </body>
-      </html>
+    <html lang="en">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          <Navigation />
+          <PageTransition>{children}</PageTransition>
+        </div>
+      </body>
+    </html>
   );
 }
