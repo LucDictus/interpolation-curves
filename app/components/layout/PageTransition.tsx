@@ -8,9 +8,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
     const pathname = usePathname();
 
     const current = demoRegistry.find(d => d.path === pathname);
-
     const isFullScreen = current?.fullScreen;
-
     const x = current?.x ?? 0;
     const y = current?.y ?? 0;
 
