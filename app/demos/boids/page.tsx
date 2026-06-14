@@ -253,6 +253,7 @@ export default function BoidsDemo() {
                             min="10"
                             max="120"
                             value={params.separationDist}
+                            style={{ width: "100%" }}
                             onChange={(e) =>
                                 setParams((p) => ({
                                     ...p,
@@ -271,6 +272,7 @@ export default function BoidsDemo() {
                             max="0.1"
                             step="0.001"
                             value={params.alignmentForce}
+                            style={{ width: "100%" }}
                             onChange={(e) =>
                                 setParams((p) => ({
                                     ...p,
@@ -289,6 +291,7 @@ export default function BoidsDemo() {
                             max="0.02"
                             step="0.0001"
                             value={params.cohesionForce}
+                            style={{ width: "100%" }}
                             onChange={(e) =>
                                 setParams((p) => ({
                                     ...p,
@@ -307,6 +310,7 @@ export default function BoidsDemo() {
                             max="6"
                             step="0.1"
                             value={params.speed}
+                            style={{ width: "100%" }}
                             onChange={(e) =>
                                 setParams((p) => ({
                                     ...p,
@@ -325,6 +329,7 @@ export default function BoidsDemo() {
                             max="0.5"
                             step="0.01"
                             value={params.predatorForce}
+                            style={{ width: "100%" }}
                             onChange={(e) =>
                                 setParams((p) => ({
                                     ...p,
