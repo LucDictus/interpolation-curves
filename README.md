@@ -8,23 +8,19 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+---
+
 ## Interpolation Curves Lab — Simulation Projects
 
-This project is a growing interactive simulation playground built with Next.js.
-Each demo is a self-contained system exploring motion, physics, algorithms, or emergent behavior.
+A growing interactive simulation playground built with Next.js. Each demo is a self-contained system exploring motion, physics, algorithms, or emergent behavior. See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add new demos.
 
-## Completed Projects
-These are fully implemented and working:
+---
+
+## Completed
 
 ### Second Order System
 - Damped spring motion model
@@ -32,16 +28,19 @@ These are fully implemented and working:
 - Cursor follower physics system
 - Foundation for motion-based interactions
 
+---
+
 ## In Progress
-These projects are currently being developed:
 
-### Boids Simulation (WIP)
-- Multi-agent flocking system
-- Separation, alignment, cohesion rules
-- Emergent group behavior (bird/fish-like motion)
+### Pathfinding Visualizer
+- Recursive backtracker maze generation
+- A* and Dijkstra's algorithm visualized step by step
+- Click and drag to draw or erase walls
+- Animated frontier, visited cells, and solution path
 
-## Planned Projects (Backlog)
-These are future simulations planned for the engine:
+---
+
+## Backlog
 
 ### Physics / Motion Systems
 - Spring Network (mass-spring system, soft-body behavior)
@@ -49,7 +48,7 @@ These are future simulations planned for the engine:
 - Rigid Body Rotation System (torque, angular momentum, inertia)
 
 ### Algorithm Visualizations
-- Pathfinding Visualizer (A* / Dijkstra)
+- Boids Simulation (multi-agent flocking, separation / alignment / cohesion)
 - Cellular Automata (Game of Life variants)
 - Vector Field Flow Simulation (noise-driven motion fields)
 
@@ -63,9 +62,8 @@ These are future simulations planned for the engine:
 - Wave Interference Simulation (harmonics + oscillation patterns)
 - Field Visualization System (vector/scalar fields)
 
+---
+
 ## Project Vision
-This project aims to become a modular browser-based simulation engine where every demo behaves like a “world” with:
-- its own rules and behavior
-- shared navigation and transitions
-- reusable physics and math systems
-- consistent interaction patterns
+
+A modular browser-based simulation engine where every demo behaves like a self-contained world with its own rules, shared navigation and transitions, reusable physics and math systems, and consistent interaction patterns.
