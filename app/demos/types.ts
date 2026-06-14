@@ -6,3 +6,4 @@ export type DemoDefinition = {
     y: number;
     fullScreen?: boolean;
 };
+
