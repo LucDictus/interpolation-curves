@@ -11,12 +11,6 @@ Each demo is a self-contained system exploring motion, physics, algorithms, or e
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the result.
