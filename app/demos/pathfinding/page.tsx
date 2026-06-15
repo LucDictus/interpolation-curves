@@ -68,6 +68,8 @@ export default function PathfindingPage() {
         setGrid(generateMaze());
     };
 
+    //TODO: Make better algorithm, make a dropdown so user can use v1, and next versions
+
     return (
         <div>
             <PathfindingGrid grid={grid} />
