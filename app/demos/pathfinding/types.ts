@@ -21,4 +21,4 @@ export type PathfindingParams = {
     speed: number;
 };
 
-export type RunState = "idle" | "running" | "done" | "no-path";
+export type RunState = "idle" | "running" | "paused" | "done" | "no-path";

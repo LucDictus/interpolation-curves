@@ -18,26 +18,51 @@ export function makeEmptyGrid(): PathfindingGrid {
 }
 
 export function generateMaze(): PathfindingGrid {
-    const grid = makeEmptyGrid();
+    // Start fully walled
+    const grid: PathfindingGrid = {
+        rows: GRID_ROWS,
+        cols: GRID_COLS,
+        cells: Array.from({ length: GRID_ROWS }, (_, r) =>
+            Array.from({ length: GRID_COLS }, (_, c) => makeCell(r, c, "wall"))
+        ),
+    };
 
-    for (let row = 0; row < grid.rows; row++) {
-        for (let col = 0; col < grid.cols; col++) {
-            const isStart = row === START.row && col === START.col;
-            const isEnd = row === END.row && col === END.col;
+    const visited = Array.from({ length: GRID_ROWS }, () =>
+        new Array(GRID_COLS).fill(false)
+    );
 
-            if (isStart) {
-                grid.cells[row][col].type = "start";
-                continue;
-            }
+    function shuffle<T>(arr: T[]): T[] {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
 
-            if (isEnd) {
-                grid.cells[row][col].type = "end";
-                continue;
-            }
+    function carve(row: number, col: number) {
+        visited[row][col] = true;
+        grid.cells[row][col].type = "empty";
 
-            grid.cells[row][col].type = Math.random() < 0.3 ? "wall" : "empty";
+        const dirs = shuffle([[-2,0],[2,0],[0,-2],[0,2]]);
+
+        for (const [dr, dc] of dirs) {
+            const nr = row + dr;
+            const nc = col + dc;
+
+            if (nr < 0 || nr >= GRID_ROWS || nc < 0 || nc >= GRID_COLS) continue;
+            if (visited[nr][nc]) continue;
+
+            // Carve the wall between current room and neighbour room
+            grid.cells[row + dr / 2][col + dc / 2].type = "empty";
+            carve(nr, nc);
         }
     }
+
+    // Start carving from top-left room
+    carve(0, 0);
+
+    grid.cells[START.row][START.col].type = "start";
+    grid.cells[END.row][END.col].type = "end";
 
     return grid;
 }
