@@ -69,4 +69,4 @@ This project aims to become a modular browser-based simulation engine where ever
 - shared navigation and transitions
 - reusable physics and math systems
 - consistent interaction patterns
-- Create a functional and realistic air tunnel (Where user can place objects in the tunnel and can alter inputs)
+- Create a functional and realistic wind tunnel (Where user can place objects in the tunnel and can alter inputs)
