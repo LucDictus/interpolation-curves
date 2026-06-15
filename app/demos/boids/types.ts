@@ -3,5 +3,9 @@ export type BoidsParams = {
     separationForce: number;
     alignmentDist: number;
     alignmentForce: number;
+    cohesionDist: number;
+    cohesionForce: number;
     speed: number;
+    predatorDist: number;
+    predatorForce: number;
 };

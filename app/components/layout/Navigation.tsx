@@ -43,9 +43,9 @@ export default function Navigation() {
                 }}
             >
                 {!collapsed && (
-                    <div style={{ fontSize: "0.95rem", letterSpacing: "0.1em" }}>
+                    <Link href="/" style={{ fontSize: "0.95rem", letterSpacing: "0.1em" }}>
                         INTERPOLATION LAB
-                    </div>
+                    </Link>
                 )}
 
                 <button
@@ -65,7 +65,7 @@ export default function Navigation() {
 
             {/* CONTENT */}
             {!collapsed && (
-                <div style={{ overflowY: "auto", flex: 1 }}>
+                <div style={{ flex: 1 }}>
                     {Object.entries(grouped).map(([category, items]) => (
                         <div key={category} style={{ marginBottom: 16 }}>
                             <div className="label" style={{ marginBottom: 8 }}>
@@ -80,7 +80,6 @@ export default function Navigation() {
                                     const dy = item.y - (current?.y ?? 0);
 
                                     const distance = Math.sqrt(dx * dx + dy * dy);
-
                                     const biasOpacity = isActive ? 1 : Math.max(0.3, 1 - distance * 0.2);
 
                                     return (
@@ -96,8 +95,6 @@ export default function Navigation() {
                                                         ? "var(--text-primary)"
                                                         : "var(--text-muted)",
                                                     cursor: "pointer",
-
-                                                    // 🌟 spatial hint
                                                     opacity: biasOpacity,
                                                     transform: `translateX(${dx * 2}px)`,
                                                     transition: "all 0.25s ease",
