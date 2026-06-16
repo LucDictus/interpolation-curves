@@ -4,6 +4,7 @@ import { generateVectorField } from "../hooks/useVectorField";
 import { useParticles } from "../hooks/useParticles";
 import ControlPanel from "@/app/components/ui/ControlPanel";
 import Slider from "@/app/components/ui/Slider";
+import VectorFieldControls from "./VectorFieldControls";
 
 const CELL_SIZE = 40;
 const TIME_STEP = 0.002;
@@ -16,6 +17,9 @@ export default function VectorFieldCanvas() {
     const [speed, setSpeed] = useState(1);
     const [scale, setScale] = useState(0.05);
     const [showArrows, setShowArrows] = useState(false);
+
+    const mouseRef = useRef<{ x: number; y: number } | null>(null);
+    const [radius, setRadius] = useState(150);
 
     const { particlesRef, update } = useParticles(dimensions.width, dimensions.height, particleCount);
     const timeRef = useRef(0);
@@ -32,8 +36,18 @@ export default function VectorFieldCanvas() {
             setDimensions({ width: canvas.width, height: canvas.height });
         };
         resize();
+
+        const handleMouseMove = (e: MouseEvent) => {
+            mouseRef.current = { x: e.clientX, y: e.clientY };
+        };
+        const handleMouseLeave = () => {
+            mouseRef.current = null;
+        };
+
         window.addEventListener("resize", resize);
-        return () => window.removeEventListener("resize", resize);
+        canvas.addEventListener("mousemove", handleMouseMove);
+        canvas.addEventListener("mouseleave", handleMouseLeave);
+        return () => window.removeEventListener("resize", resize, "mousemove", handleMouseMove, "mouseleave", handleMouseLeave);
     }, []);
 
     useEffect(() => {
@@ -81,7 +95,9 @@ export default function VectorFieldCanvas() {
                 dimensions.height,
                 CELL_SIZE,
                 timeRef.current,
-                scale
+                scale,
+                mouseRef.current,
+                radius
             );
 
             ctx.fillStyle = "#101214";
@@ -111,19 +127,13 @@ export default function VectorFieldCanvas() {
                 ref={canvasRef}
                 style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh" }}
             />
-            <ControlPanel title="VECTOR FIELD">
-                <Slider label="Particles" min={50} max={1000} step={50} value={particleCount} onChange={setParticleCount} decimals={0} />
-                <Slider label="Flow Speed" min={0.1} max={3} step={0.1} value={speed} onChange={setSpeed} decimals={1} />
-                <Slider label="Noise Scale" min={0.01} max={0.2} step={0.01} value={scale} onChange={setScale} decimals={2} />
-                <div style={{ marginTop: 15, display: "flex", alignItems: "center", gap: 8 }}>
-                    <input
-                        type="checkbox"
-                        checked={showArrows}
-                        onChange={(e) => setShowArrows(e.target.checked)}
-                    />
-                    <span className="label">Show Field Arrows</span>
-                </div>
-            </ControlPanel>
+            <VectorFieldControls
+                particleCount={particleCount} setParticleCount={setParticleCount}
+                speed={speed} setSpeed={setSpeed}
+                scale={scale} setScale={setScale}
+                radius={radius} setRadius={setRadius}
+                showArrows={showArrows} setShowArrows={setShowArrows}
+            />
         </div>
     );
 }
